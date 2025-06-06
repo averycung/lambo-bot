@@ -1,4 +1,5 @@
 import mysql.connector
+import os
 
 conn = mysql.connector.connect(
     host=os.getenv("MYSQLHOST"),         
