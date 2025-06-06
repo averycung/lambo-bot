@@ -1,13 +1,13 @@
 <p align="center">
-  <img src="transparent.png" alt="Lambo Bot Icon" width="120"/>
+  <img src="assets/transparent.png" alt="Lambo Bot Icon" width="120"/>
 </p>
 <h1 align="center">Lambo Bot</h1>
 
 A Telegram bot that lets users shill BullX and Axiom referral codes by detecting and replying to Solana token addresses in chats with custom user referral codes set and stored via MySQL.
 
 <p align="center">
-  <img src="icon.png" alt="Lambo Bot Icon" width="300"/>
-    <img src="icon2.png" alt="Lambo Bot Icon" width="300"/>
+  <img src="assets/icon.png" alt="Lambo Bot Icon" width="300"/>
+    <img src="assets/icon2.png" alt="Lambo Bot Icon" width="300"/>
 </p>
 
 
