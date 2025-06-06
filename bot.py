@@ -1,5 +1,5 @@
 from dotenv import load_dotenv  # For guarding API token
-from db import add_bull, add_axiom, claim_chat, view, delcode, find_ax, find_bull, find_owner  
+from bot.db import add_bull, add_axiom, claim_chat, view, delcode, find_ax, find_bull, find_owner  
 import os
 import telebot    # Telegram API
 import base58     # For decrypting Solana CA
