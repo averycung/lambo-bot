@@ -1,53 +1,39 @@
-from dotenv import load_dotenv    # For guarding API token
+from dotenv import load_dotenv  # For guarding API token
 from db import add_bull, add_axiom, claim_chat, view, delcode, find_ax, find_bull, find_owner  
 import os
 import telebot    # Telegram API
-import base58     # For decrypting CA
-import mysql.connector  
-from telebot import types
+import base58     # For decrypting Solana CA
+import mysql.connector 
+from telebot import types 
 
-
+# Retrieve API token
 load_dotenv()  
 BOT_TOKEN = os.environ.get('BOT_TOKEN')
 bot = telebot.TeleBot(BOT_TOKEN)
 
+#---Helper Methods
 
-
-#----------------#
-# Helper methods #
-#----------------#
-
-## helper boolean method to determine whether a string is a valid CA or not
+# Determine whether a string is a valid CA or not
 def isValidCA(address):
     try:
-        decoded = base58.b58decode(address)
-        return len(decoded) == 32
+        decoded = base58.b58decode(address) # Decode CA
+        return len(decoded) == 32 # Valid if 32 bytes
     except Exception:
         return False
 
-
-## helper method to return CA in a given message block
+# Return CA in a given message block
 def findCA(msg):
     x = msg.text
     words = x.split()
     for word in words:
         word = word.strip()
-        if isValidCA(word):
+        if isValidCA(word): 
             return word
     return False
 
+#---Bot Filters
 
-
-
-
-
-#-------------#
-# Bot filters #
-#-------------#
-
-
-
-## create custom validCA filter to filter for valid CAs in chat messages
+# Create custom validCA filter to filter for valid CAs in chat messages
 class IsValidCA(telebot.custom_filters.SimpleCustomFilter):
     key ='is_CA'
     @staticmethod
@@ -59,36 +45,24 @@ class IsValidCA(telebot.custom_filters.SimpleCustomFilter):
             if isValidCA(word):
                 return True
         return False
-    
-
-## add bot filter
+        
+# Add bot filter
 bot.add_custom_filter(IsValidCA())
 
+#---Message Handlers
 
-
-#------------------#
-# Message handlers #
-#------------------#
-
-
-
-## START COMMAND
+# START COMMAND
 @bot.message_handler(commands=['start'])
 def start(message):
     bot.reply_to(message, "*I\\'m Lambo\\.* If you are new to Lambo, please see /instructions\n \nIf you want to shill your referral links in chat, I\\'m your guy\\.  \n \nYou can control me by"\
                  " sending these commands: \n \n*Codes:* \n/setcode \\- set your referral link\n/viewcode \\- view your code\n/deletecode \\- delete your code", parse_mode="MarkdownV2")
-
-
-#------------------#
-
-## HELP COMMAND
+    
+# HELP COMMAND
 @bot.message_handler(commands=['help'])
 def help(message):
     bot.reply_to(message, "*Commands:* \n/instructions \n/setcode \n/viewcode \n/deletecode", parse_mode="MarkdownV2")
 
-#------------------#
-
-## INSTRUCTIONS COMMAND
+# INSTRUCTIONS COMMAND
 @bot.message_handler(commands=['instructions'])
 def instructions(message):
     bot.reply_to(message, "*Instructions:* \n*1\\.* Set your referral codes with */setcode*\\. Your referral code will be stored in my database"\
@@ -96,11 +70,7 @@ def instructions(message):
                  "I will respond to every CA posted in that group chat with your referral links\\. *note* you must be an admin to use */claim* in a chat"\
                  "\n\n*3\\.* Update, view or delete your links with */setcode* , */viewcode* , or */deletecode*", parse_mode="MarkdownV2")
 
-
-
-#------------------#
-
-## SET CODE COMMAND
+# SET CODE COMMAND
 user_codes = {}  
 @bot.message_handler(commands=['setcode'])
 def set_link(message):
@@ -133,12 +103,8 @@ def save_ref_code_axiom(message):
     code = message.text
     add_axiom(message.from_user.id, code) 
     bot.reply_to(message, "Your code has been updated!")
-    
 
-
-#------------------#
-
-## VIEW CODE COMMAND
+# VIEW CODE COMMAND
 @bot.message_handler(commands=['viewcode'])
 def view_link(message):
     id = message.from_user.id
@@ -151,10 +117,7 @@ def view_link(message):
     
     bot.reply_to(message, reply, parse_mode="MarkdownV2")
 
-
-#------------------#
-
-## DELETE CODE COMMAND
+# DELETE CODE COMMAND
 @bot.message_handler(commands=['deletecode'])
 def del_code(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
@@ -179,10 +142,7 @@ def delete(message):
         delcode(id, "axiom_ref_code")
         bot.reply_to(message, "Your Axiom code has been deleted.")
 
-#------------------#
-
-## CLAIM CHAT COMMAND
-
+# CLAIM CHAT COMMAND
 @bot.message_handler(commands=['claim'])
 def claim(message):
     id = message.from_user.id
@@ -195,10 +155,8 @@ def claim(message):
     else:
         bot.reply_to(message, "You are not an admin")
 
-
-#------------------#
-
-## MAIN MESSAGE HANDLER FOR CA
+#---Main
+# MAIN MESSAGE HANDLER FOR CA
 @bot.message_handler(is_CA=True)
 def caMsg(message):
     chat_id = message.chat.id
