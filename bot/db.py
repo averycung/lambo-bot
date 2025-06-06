@@ -28,6 +28,24 @@ def add_axiom(telegram_id, aref_code):
     cursor.close()
     conn.close()
 
+def add_username_usercodes(username):
+    conn = get_connection()
+    cursor = conn.cursor()
+    query = "INSERT INTO user_codes (username) VALUES (%s)"
+    cursor.execute(query, (username))
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+def add_username_chatowners(username):
+    conn = get_connection()
+    cursor = conn.cursor()
+    query = "INSERT INTO chat_owners (username) VALUES (%s)"
+    cursor.execute(query, (username))
+    conn.commit()
+    cursor.close()
+    conn.close()
+
 def claim_chat(xchat_id, user_id):
     conn = get_connection()
     cursor = conn.cursor()
