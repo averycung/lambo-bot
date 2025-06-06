@@ -1,8 +1,9 @@
-# Lambo Bot 🐑
+# Lambo Bot 
+![Lambo Bot green sky](https://github.com/user-attachments/assets/c8d3b93c-ab60-461e-b4e9-77e2dfcc70a6)
 
-A Telegram bot that lets users claim chats and assign custom referral codes via MySQL.
+A Telegram bot that lets users shill BullX and Axiom referral codes by detecting and replying to Solana token addresses in chats with custom user referral codes set and stored via MySQL.
 
-## 🛠 Setup
+## Setup:
 
 ```bash
 git clone https://github.com/averycung/lambo-bot
