@@ -31,7 +31,7 @@ def add_axiom(telegram_id, aref_code):
 def add_username_usercodes(username):
     conn = get_connection()
     cursor = conn.cursor()
-    query = "INSERT INTO user_codes (telegram_id, username) VALUES (%s) ON DUPLICATE KEY UPDATE username = VALUES(username)"
+    query = "INSERT INTO user_codes (telegram_id, username) VALUES (%s, %s) ON DUPLICATE KEY UPDATE username = VALUES(username)"
     cursor.execute(query, (username,))
     conn.commit()
     cursor.close()
@@ -40,7 +40,7 @@ def add_username_usercodes(username):
 def add_username_chatowners(username):
     conn = get_connection()
     cursor = conn.cursor()
-    query = "INSERT INTO chat_owners (telegram_id, username) VALUES (%s) ON DUPLICATE KEY UPDATE username = VALUES(username)"
+    query = "INSERT INTO chat_owners (telegram_id, username) VALUES (%s, %s) ON DUPLICATE KEY UPDATE username = VALUES(username)"
     cursor.execute(query, (username,))
     conn.commit()
     cursor.close()
