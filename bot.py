@@ -1,5 +1,5 @@
 from dotenv import load_dotenv  # For guarding API token
-from bot.db import add_bull, add_axiom, claim_chat, view, delcode, find_ax, find_bull, find_owner  
+from bot.db import *
 import os
 import telebot    # Telegram API
 import base58     # For decrypting Solana CA
@@ -96,12 +96,14 @@ def paste_ref_code(message):
 
 def save_ref_code_bull(message):
     code = message.text
-    add_bull(message.from_user.id, code) 
+    add_bull(message.from_user.id, code)
+    add_username_usercodes(message.from_user.username)
     bot.reply_to(message, "Your code has been updated!")
 
 def save_ref_code_axiom(message):
     code = message.text
     add_axiom(message.from_user.id, code) 
+    add_username_usercodes(message.from_user.username)
     bot.reply_to(message, "Your code has been updated!")
 
 # VIEW CODE COMMAND
@@ -151,6 +153,7 @@ def claim(message):
 
     if id in admin_ids:
         claim_chat(chatid, id)
+        add_username_chatowners(message.from_user.username)
         bot.reply_to(message, "You have become the master of this chat!")
     else:
         bot.reply_to(message, "You are not an admin")
