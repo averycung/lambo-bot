@@ -1,10 +1,11 @@
 import mysql.connector
 
 conn = mysql.connector.connect(
-    host="acung.mysql.pythonanywhere-services.com",
-    user="acung",
-    password="Kakakaka1",
-    database="acung$lambo_bot"
+    host=os.getenv("MYSQLHOST"),         
+    port=int(os.getenv("MYSQLPORT")),    
+    user=os.getenv("MYSQLUSER"),         
+    password=os.getenv("MYSQLPASSWORD"), 
+    database=os.getenv("MYSQLDATABASE")  
 )
 
 cursor = conn.cursor()
