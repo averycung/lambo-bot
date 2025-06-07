@@ -37,11 +37,11 @@ def add_username_usercodes(telegram_id, username):
     cursor.close()
     conn.close()
 
-def add_username_chatowners(telegram_id, username):
+def add_username_chatowners(chat_id, username):
     conn = get_connection()
     cursor = conn.cursor()
-    query = "INSERT INTO chat_owners (telegram_id, username) VALUES (%s, %s) ON DUPLICATE KEY UPDATE username = VALUES(username)"
-    cursor.execute(query, (telegram_id, username))
+    query = "INSERT INTO chat_owners (chat_id, username) VALUES (%s, %s) ON DUPLICATE KEY UPDATE username = VALUES(username)"
+    cursor.execute(query, (chat_id, username))
     conn.commit()
     cursor.close()
     conn.close()
