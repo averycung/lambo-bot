@@ -162,9 +162,12 @@ def claim(message):
 # MAIN MESSAGE HANDLER FOR CA
 @bot.message_handler(is_CA=True)
 def caMsg(message):
+    user_id = message.from_user.id
+    username = message.from_user.username
     chat_id = message.chat.id
     owner_id = find_owner(chat_id)
     ca = findCA(message)
+    add_user(user_id, username)
 
     if view(owner_id)[0] != None:
         # Build the bullx referral link
