@@ -3,7 +3,7 @@
 </p>
 <h1 align="center">Lambo Bot</h1>
 
-A Telegram bot that lets users shill BullX and Axiom referral codes by detecting and replying to Solana token addresses in chats with custom user referral codes set and stored via MySQL.
+A Telegram bot that lets users promote BullX and Axiom referral codes by detecting and replying to Solana token addresses in chats with custom user referral codes set and stored via MySQL.
 
 <p align="center">
   <img src="assets/banner.jpeg" alt="Lambo Bot Icon" width="800"/>
@@ -64,7 +64,7 @@ asks the user which platform to delete a referral code for. deletes the chosen c
 ![image](https://github.com/user-attachments/assets/c7e682d2-9931-4611-8255-e10a4dd38e42)
 -------
 **/claim**
-allows the user to 'claim' ownership of a group chat/channel. Once a group chat is claimed, Lambo only shills the referral code of the chat's owner. any time a Solana CA is detected, the owner's referral codes will be returned in a message.
+allows the user to 'claim' ownership of a group chat/channel. Once a group chat is claimed, Lambo only promotes the referral code of the chat's owner. any time a Solana CA is detected, the owner's referral codes will be returned in a message.
 chat owners are stored in a MySQL table with the unique chat id and telegram id as parameters. for user experience, **only admins** of a chat can use /claim. this ensures that usage of the bot stays intentional and controlled.
 
 ![image](https://github.com/user-attachments/assets/e7a94072-2bda-4717-ad33-3598c645290c)
