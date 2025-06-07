@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/transparent.png" alt="Lambo Bot Icon" width="120"/>
+  <img src="assets/icon3.png" alt="Lambo Bot Icon" width="120"/>
 </p>
 <h1 align="center">Lambo Bot</h1>
 
