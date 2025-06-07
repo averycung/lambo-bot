@@ -153,7 +153,7 @@ def claim(message):
 
     if id in admin_ids:
         claim_chat(chatid, id)
-        add_username_chatowners(message.from_user.id, message.from_user.username)
+        add_username_chatowners(chatid, message.from_user.username)
         bot.reply_to(message, "You have become the master of this chat!")
     else:
         bot.reply_to(message, "You are not an admin")
