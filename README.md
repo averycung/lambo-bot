@@ -3,7 +3,7 @@
 </p>
 <h1 align="center">Lambo Bot</h1>
 
-A Telegram bot that lets users promote BullX and Axiom referral codes by detecting and replying to Solana token addresses in chats with custom user referral codes set and stored via MySQL.
+A Telegram bot that lets users promote their BullX and Axiom referral codes by detecting and replying to Solana token addresses in chat. Custom user referral codes are set and stored via MySQL.
 
 <p align="center">
   <img src="assets/banner.jpeg" alt="Lambo Bot Icon" width="800"/>
