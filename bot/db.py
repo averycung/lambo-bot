@@ -54,6 +54,15 @@ def claim_chat(xchat_id, user_id):
     conn.commit()
     cursor.close()
     conn.close()
+    
+def add_user(telegram_id, username):
+    conn = get_connection()
+    cursor = conn.cursor()
+    query = "INSERT INTO users (telegram_id, username) VALUES (%s, %s) ON DUPLICATE KEY UPDATE username = VALUES(username)"
+    cursor.execute(query, (telegram_id, username))
+    conn.commit()
+    cursor.close()
+    conn.close()
 
 def view(tg_id):
     conn = get_connection()
