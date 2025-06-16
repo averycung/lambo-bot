@@ -33,6 +33,7 @@ pip install -r requirements.txt
 ```bash
 BOT_TOKEN=your_telegram_bot_token
 ```
+---
 
 ## Command Functions
 The bot has 7 commands:
@@ -43,7 +44,7 @@ The bot has 7 commands:
 * /viewcode
 * /deletecode
 * /claim
--------
+
 **/start**
 starts the bot, returns a mesage containing preliminary instructions
 
@@ -95,5 +96,7 @@ Solana uses Base58Check encoding; each CA is a 32-byte public key. Lambo Bot det
 
 ![image](https://github.com/user-attachments/assets/679e6588-0593-4822-b8a1-72103d71fc8f)
 
+## Contact
+@natu102 on telegram
 
 
