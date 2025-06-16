@@ -3,19 +3,35 @@
 </p>
 <h1 align="center">Lambo Bot</h1>
 
-A Telegram bot that lets users promote their BullX and Axiom referral codes by detecting and replying to Solana token addresses in chat. Custom user referral codes are set and stored via MySQL.
+**Lambo Bot** is a Telegram bot built to help users automatically promote their **BullX** and **Axiom** crypto trading platform referral links. It detects Solana token addresses in group chats and responds with the referring user’s custom referral link.
 
 <p align="center">
   <img src="assets/banner.jpeg" alt="Lambo Bot Icon" width="800"/>
 </p>
 
+## Features 
+- 🔍 Detects Solana contract addresses in Telegram messages
+- 💭 Replies with a customized referral link set by the user
+- 🛢️ MySQL-backed database for storing referral data
+- 🔗 Easy-to-configure bot token and database connection
+
+## Tech Stack
+- **Python**  
+- **TeleBot (pyTelegramBotAPI)**  
+- **MySQL**  
+- Hosted on: `Railway`
 
 ## Setup
 
+**Clone the repo**
 ```bash
 git clone https://github.com/averycung/lambo-bot
 cd lambo-bot
 pip install -r requirements.txt
+```
+**Configure environment**
+```bash
+BOT_TOKEN=your_telegram_bot_token
 ```
 
 ## Command Functions
