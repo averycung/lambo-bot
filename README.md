@@ -11,9 +11,9 @@
 
 ## Features 
 - 🔍 Detects Solana contract addresses in Telegram messages
-- 💭 Replies with a customized referral link set by the user
+- 💭 Replies to all addresses with a customized referral link set by the user
+- 💻 Tracks chat owners for consistent promotion between chats
 - 🛢️ MySQL-backed database for storing referral data
-- 🔗 Easy-to-configure bot token and database connection
 
 ## Tech Stack
 - **Python**  
@@ -35,7 +35,7 @@ BOT_TOKEN=your_telegram_bot_token
 ```
 ---
 
-## Command Functions
+## Demo
 The bot has 7 commands:
 * /start
 * /instructions
