@@ -21,20 +21,6 @@
 - **MySQL**  
 - Hosted on: `Railway`
 
-## Setup
-
-**Clone the repo**
-```bash
-git clone https://github.com/averycung/lambo-bot
-cd lambo-bot
-pip install -r requirements.txt
-```
-**Configure environment**
-```bash
-BOT_TOKEN=your_telegram_bot_token
-```
----
-
 ## Demo
 The bot has 7 commands:
 * /start
